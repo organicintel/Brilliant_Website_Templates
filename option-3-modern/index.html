@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Modern architectural homepage concept for Brilliant Law Office." />
+  <title>Brilliant Law Office — Modern Precision Concept</title>
+  <style>
+    :root {
+      --white: #ffffff;
+      --cloud: #f4f6f7;
+      --ink: #0b1115;
+      --soft: #5d686f;
+      --blue: #1b4157;
+      --blue-light: #dce8ee;
+      --lime: #d8e59c;
+      --line: rgba(11, 17, 21, .12);
+      --max: 1380px;
+      --radius: 28px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .shell { width: min(calc(100% - 48px), var(--max)); margin-inline: auto; }
+    .eyebrow { margin: 0 0 18px; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(22px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .brand { display: flex; align-items: center; gap: 13px; }
+    .brand img { width: 46px; height: 46px; object-fit: contain; border-radius: 50%; background: #222; }
+    .brand strong { display: block; font-size: 17px; letter-spacing: -.025em; }
+    .brand span { display: block; margin-top: 4px; color: var(--soft); font-size: 8px; font-weight: 750; letter-spacing: .2em; text-transform: uppercase; }
+    nav { display: flex; gap: 28px; align-items: center; color: #273037; font-size: 13px; font-weight: 650; }
+    nav a:hover { opacity: .5; }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .call-link { font-size: 12px; font-weight: 750; }
+    .button {
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 750;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-dark { background: var(--ink); color: white; box-shadow: 0 14px 30px rgba(11,17,21,.16); }
+    .button-white { background: white; color: var(--ink); }
+    .button-line { border-color: rgba(255,255,255,.25); color: white; }
+    .menu { display: none; border: 0; background: transparent; font-size: 25px; }
+
+    .hero { padding: 24px 0 0; }
+    .hero-card {
+      position: relative;
+      min-height: 790px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--blue);
+      color: white;
+    }
+    .hero-image { position: absolute; right: 0; top: 0; width: 54%; height: 100%; object-fit: cover; object-position: center 14%; filter: saturate(.68) contrast(1.05); }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(12,38,52,.98) 0%, rgba(12,38,52,.94) 44%, rgba(12,38,52,.22) 76%);
+    }
+    .hero-gridline { position: absolute; z-index: 2; inset: 0; opacity: .12; background-image: linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px); background-size: 84px 84px; mask-image: linear-gradient(90deg, black, transparent 75%); }
+    .hero-content { position: relative; z-index: 3; width: 61%; min-height: 790px; padding: 78px 64px 130px; display: flex; flex-direction: column; justify-content: center; }
+    .hero .eyebrow { color: var(--lime); }
+    .hero h1 { margin: 0; max-width: 850px; font-size: clamp(62px, 7vw, 108px); line-height: .91; letter-spacing: -.065em; font-weight: 610; }
+    .hero h1 span { color: var(--lime); }
+    .hero p { max-width: 650px; margin: 30px 0 34px; color: rgba(255,255,255,.68); font-size: 18px; line-height: 1.7; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-meta {
+      position: absolute;
+      z-index: 4;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      display: grid;
+      grid-template-columns: 1.25fr repeat(3, .75fr);
+      background: rgba(6,18,24,.58);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 18px;
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
+    .meta-intro, .meta { min-height: 92px; padding: 20px 24px; display: flex; flex-direction: column; justify-content: center; }
+    .meta-intro { color: rgba(255,255,255,.64); font-size: 12px; line-height: 1.5; }
+    .meta { border-left: 1px solid rgba(255,255,255,.14); }
+    .meta strong { font-size: 18px; }
+    .meta span { margin-top: 6px; color: rgba(255,255,255,.52); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+
+    .ticker { overflow: hidden; border-bottom: 1px solid var(--line); }
+    .ticker-track { min-width: max-content; display: flex; align-items: center; gap: 48px; padding: 24px; animation: drift 28s linear infinite; }
+    .ticker span { color: var(--soft); font-size: 12px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    .ticker i { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); border: 1px solid #9baa58; }
+    @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .section { padding: 130px 0; }
+    .section-head { display: grid; grid-template-columns: .75fr 1.25fr; gap: 8vw; align-items: start; margin-bottom: 62px; }
+    .section-number { color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: .18em; }
+    .section-head h2 { margin: 0; max-width: 900px; font-size: clamp(48px, 6vw, 86px); line-height: .98; letter-spacing: -.055em; font-weight: 610; }
+    .section-head p { max-width: 700px; margin: 26px 0 0; color: var(--soft); font-size: 18px; line-height: 1.75; }
+
+    .services { background: var(--cloud); }
+    .service-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .service {
+      min-height: 330px;
+      padding: 30px;
+      border-radius: 22px;
+      background: white;
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .service:hover { transform: translateY(-7px); box-shadow: 0 26px 60px rgba(20,35,44,.10); }
+    .service:nth-child(1), .service:nth-child(4) { grid-column: span 5; }
+    .service:nth-child(2), .service:nth-child(3) { grid-column: span 7; }
+    .service:nth-child(5), .service:nth-child(6) { grid-column: span 6; }
+    .service-top { display: flex; justify-content: space-between; align-items: start; gap: 20px; }
+    .service-num { color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .14em; }
+    .service-icon { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--blue-light); color: var(--blue); font-size: 18px; }
+    .service h3 { margin: 0 0 15px; font-size: clamp(28px, 3vw, 44px); line-height: 1; letter-spacing: -.045em; font-weight: 610; }
+    .service p { margin: 0; max-width: 570px; color: var(--soft); line-height: 1.65; }
+    .service-link { margin-top: 26px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 800; }
+
+    .attorney { padding: 130px 0; }
+    .attorney-card { display: grid; grid-template-columns: 1fr 1fr; min-height: 760px; overflow: hidden; border-radius: var(--radius); background: var(--ink); color: white; }
+    .attorney-photo { min-height: 760px; }
+    .attorney-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; filter: grayscale(.25); }
+    .attorney-copy { padding: clamp(48px, 7vw, 96px); display: flex; flex-direction: column; justify-content: center; }
+    .attorney .eyebrow { color: var(--lime); }
+    .attorney h2 { margin: 0; font-size: clamp(50px, 6vw, 84px); line-height: .96; letter-spacing: -.055em; font-weight: 600; }
+    .attorney blockquote { margin: 34px 0 24px; font-size: 24px; line-height: 1.55; letter-spacing: -.025em; font-weight: 420; color: rgba(255,255,255,.86); }
+    .attorney p { margin: 0 0 34px; color: rgba(255,255,255,.56); line-height: 1.75; }
+
+    .program { padding: 0 0 130px; }
+    .program-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 16px; }
+    .program-visual, .program-copy { min-height: 570px; border-radius: 22px; }
+    .program-visual { position: relative; overflow: hidden; background: var(--blue-light); display: grid; place-items: center; }
+    .program-visual::before { content: ""; position: absolute; width: 390px; height: 390px; border: 1px solid rgba(27,65,87,.25); border-radius: 50%; box-shadow: 0 0 0 80px rgba(27,65,87,.05), 0 0 0 160px rgba(27,65,87,.035); }
+    .program-mark { position: relative; z-index: 2; text-align: center; }
+    .program-mark strong { display: block; color: var(--blue); font-size: clamp(110px, 14vw, 190px); line-height: .8; letter-spacing: -.1em; font-weight: 600; }
+    .program-mark span { display: block; margin-top: 28px; color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .program-copy { padding: clamp(46px, 6vw, 78px); background: var(--cloud); display: flex; flex-direction: column; justify-content: center; }
+    .program-copy h2 { margin: 0; font-size: clamp(46px, 5vw, 72px); line-height: .98; letter-spacing: -.05em; font-weight: 610; }
+    .program-copy p { max-width: 660px; margin: 27px 0 34px; color: var(--soft); line-height: 1.75; font-size: 17px; }
+
+    .proof { padding: 130px 0; background: var(--blue); color: white; }
+    .proof-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 16px; }
+    .quote-card, .score-card { border-radius: 22px; border: 1px solid rgba(255,255,255,.16); }
+    .quote-card { padding: clamp(42px, 6vw, 78px); background: rgba(255,255,255,.05); }
+    .quote-card span { color: var(--lime); font-size: 90px; line-height: .6; }
+    .quote-card blockquote { margin: 30px 0 34px; font-size: clamp(30px, 4vw, 56px); line-height: 1.2; letter-spacing: -.045em; font-weight: 520; }
+    .quote-card footer { color: rgba(255,255,255,.52); font-size: 12px; }
+    .score-card { padding: 44px; background: var(--lime); color: var(--ink); display: flex; flex-direction: column; justify-content: space-between; }
+    .score-card .stars { letter-spacing: .18em; }
+    .score-card strong { display: block; font-size: 92px; line-height: .9; letter-spacing: -.07em; }
+    .score-card p { color: rgba(11,17,21,.64); line-height: 1.6; }
+
+    .locations { padding: 115px 0; }
+    .location-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--line); }
+    .location { padding: 38px 28px; border-right: 1px solid var(--line); }
+    .location:last-child { border-right: 0; }
+    .location span { color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .location strong { display: block; margin-top: 12px; font-size: 25px; letter-spacing: -.035em; }
+    .location small { display: block; margin-top: 10px; color: var(--soft); line-height: 1.5; }
+
+    .final { padding: 115px 0; background: var(--cloud); text-align: center; }
+    .final h2 { max-width: 980px; margin: 0 auto; font-size: clamp(52px, 6.5vw, 94px); line-height: .94; letter-spacing: -.06em; font-weight: 610; }
+    .final p { max-width: 650px; margin: 28px auto 34px; color: var(--soft); font-size: 17px; line-height: 1.7; }
+
+    footer { padding: 70px 0 30px; background: var(--ink); color: white; }
+    .footer-grid { display: grid; grid-template-columns: 1.35fr repeat(3, .65fr); gap: 44px; }
+    .footer-brand p { max-width: 390px; color: rgba(255,255,255,.48); line-height: 1.7; }
+    .footer-col h4 { margin: 0 0 18px; color: var(--lime); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+    .footer-col a, .footer-col span { display: block; margin: 11px 0; color: rgba(255,255,255,.6); font-size: 13px; }
+    .footer-bottom { margin-top: 54px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.12); display: flex; justify-content: space-between; gap: 20px; color: rgba(255,255,255,.32); font-size: 11px; }
+
+    @media (max-width: 1050px) {
+      nav, .call-link { display: none; }
+      .menu { display: block; }
+      .hero-content { width: 70%; }
+      .hero-image { width: 60%; }
+      .service:nth-child(n) { grid-column: span 6; }
+      .attorney-card { grid-template-columns: 1fr; }
+      .attorney-photo { min-height: 600px; }
+      .attorney-copy { min-height: 600px; }
+      .program-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+      .footer-col:last-child { grid-column: 2 / span 2; }
+    }
+
+    @media (max-width: 760px) {
+      .shell { width: min(calc(100% - 24px), var(--max)); }
+      .nav { min-height: 70px; }
+      .brand img { width: 42px; height: 42px; }
+      .brand strong { font-size: 15px; }
+      .nav-actions .button { display: none; }
+      .hero { padding-top: 12px; }
+      .hero-card { min-height: 830px; border-radius: 20px; }
+      .hero-image { width: 100%; height: 54%; object-position: center 12%; }
+      .hero-card::after { background: linear-gradient(0deg, rgba(12,38,52,.99) 6%, rgba(12,38,52,.88) 52%, rgba(12,38,52,.08) 100%); }
+      .hero-gridline { display: none; }
+      .hero-content { width: 100%; min-height: 830px; padding: 390px 24px 224px; justify-content: flex-end; }
+      .hero h1 { font-size: 55px; }
+      .hero p { margin: 20px 0 26px; font-size: 16px; }
+      .hero-actions .button { width: 100%; }
+      .hero-meta { grid-template-columns: 1fr 1fr; left: 12px; right: 12px; bottom: 12px; }
+      .meta-intro { grid-column: 1 / -1; min-height: 66px; }
+      .meta { min-height: 68px; padding: 14px; }
+      .meta:nth-child(4) { grid-column: 1 / -1; border-left: 0; border-top: 1px solid rgba(255,255,255,.14); }
+      .meta:nth-child(2) { border-left: 0; }
+      .section { padding: 84px 0; }
+      .section-head { grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
+      .section-head h2 { font-size: 48px; }
+      .service:nth-child(n) { grid-column: 1 / -1; min-height: 290px; }
+      .attorney { padding: 84px 0; }
+      .attorney-photo { min-height: 460px; }
+      .attorney-copy { min-height: auto; padding: 50px 28px; }
+      .program { padding-bottom: 84px; }
+      .program-visual, .program-copy { min-height: 460px; }
+      .proof { padding: 84px 0; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .score-card { min-height: 330px; }
+      .locations { padding: 82px 0; }
+      .location-grid { grid-template-columns: 1fr 1fr; }
+      .location:nth-child(2) { border-right: 0; }
+      .location:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-col:last-child { grid-column: auto; }
+      .footer-bottom { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#top"><img src="logo.png" alt="Brilliant Law Office logo" /><span><strong>Brilliant Law Office</strong><span>Personal counsel since 1998</span></span></a>
+      <nav><a href="#practice">Practice</a><a href="#attorney">Attorney</a><a href="#program">2YouLaw™</a><a href="#locations">Locations</a></nav>
+      <div class="nav-actions"><a class="call-link" href="tel:18332968259">(833) 296-8259</a><a class="button button-dark" href="https://brilliantlaw.cliogrow.com/book">Consultation <span>↗</span></a><button class="menu" aria-label="Open menu">☰</button></div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-card">
+        <img class="hero-image" src="ronald.jpg" alt="Attorney Ronald W. Brilliant" />
+        <div class="hero-gridline"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Brilliant Law Office PLLC</p>
+          <h1>Clear thinking.<br><span>Decisive counsel.</span></h1>
+          <p>Attorney-led representation for individuals, families and businesses—designed to make complex legal decisions easier to understand and act on.</p>
+          <div class="hero-actions"><a class="button button-white" href="https://brilliantlaw.cliogrow.com/book">Request a consultation <span>↗</span></a><a class="button button-line" href="#practice">View practice areas</a></div>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-intro">Direct communication, practical options and a clear path forward.</div>
+          <div class="meta"><strong>Since 1998</strong><span>Established</span></div>
+          <div class="meta"><strong>CA · ID · NV</strong><span>Licensed</span></div>
+          <div class="meta"><strong>Nationwide</strong><span>Immigration</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Bankruptcy</span><i></i><span>Immigration</span><i></i><span>Family Law</span><i></i><span>Business Law</span><i></i><span>Civil Litigation</span><i></i><span>Wills & Estates</span><i></i><span>Bankruptcy</span><i></i><span>Immigration</span><i></i><span>Family Law</span><i></i><span>Business Law</span><i></i><span>Civil Litigation</span><i></i><span>Wills & Estates</span></div></div>
+
+    <section class="section services" id="practice">
+      <div class="shell">
+        <div class="section-head"><div class="section-number">01 / PRACTICE</div><div><p class="eyebrow">Focused legal guidance</p><h2>Complex matters, organized into a clear next step.</h2><p>Broad civil-law experience, delivered with the focus and direct attorney access each matter deserves.</p></div></div>
+        <div class="service-grid">
+          <a class="service" href="https://brilliant.law/bankruptcy/"><div class="service-top"><span class="service-num">01</span><span class="service-icon">↘</span></div><div><h3>Bankruptcy</h3><p>Chapter 7, Chapter 13 and other debt-relief options explained clearly and evaluated carefully.</p><div class="service-link"><span>Explore service</span><span>→</span></div></div></a>
+          <a class="service" href="https://brilliant.law/immigration/"><div class="service-top"><span class="service-num">02</span><span class="service-icon">↘</span></div><div><h3>Immigration</h3><p>Nationwide representation for families, businesses, athletes, asylum matters and deportation defense.</p><div class="service-link"><span>Explore service</span><span>→</span></div></div></a>
+          <a class="service" href="https://brilliant.law/family-law/"><div class="service-top"><span class="service-num">03</span><span class="service-icon">↘</span></div><div><h3>Family Law</h3><p>Practical representation for divorce, custody, support and other major family transitions.</p><div class="service-link"><span>Explore service</span><span>→</span></div></div></a>
+          <a class="service" href="https://brilliant.law/business-law/"><div class="service-top"><span class="service-num">04</span><span class="service-icon">↘</span></div><div><h3>Business Law</h3><p>Structure, contracts and counsel for owners building or protecting a business.</p><div class="service-link"><span>Explore service</span><span>→</span></div></div></a>
+          <a class="service" href="https://brilliant.law/civil-litigation/"><div class="service-top"><span class="service-num">05</span><span class="service-icon">↘</span></div><div><h3>Civil Litigation</h3><p>Prepared, strategic advocacy for disputes requiring careful analysis and decisive action.</p><div class="service-link"><span>Explore service</span><span>→</span></div></div></a>
+          <a class="service" href="https://brilliant.law/wills-trusts-estates/"><div class="service-top"><span class="service-num">06</span><span class="service-icon">↘</span></div><div><h3>Wills & Estates</h3><p>Clear planning to protect your wishes, your property and the people who matter most.</p><div class="service-link"><span>Explore service</span><span>→</span></div></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="attorney" id="attorney">
+      <div class="shell attorney-card">
+        <div class="attorney-photo"><img src="ronald.jpg" alt="Ronald W. Brilliant" /></div>
+        <div class="attorney-copy"><p class="eyebrow">Meet your attorney</p><h2>Experience without layers.</h2><blockquote>“You should understand your options, know what comes next and have direct access to the attorney handling your matter.”</blockquote><p>Ronald W. Brilliant has practiced since 1998. The firm is structured around personal attorney involvement, practical counsel and communication that keeps clients informed.</p><a class="button button-white" href="https://brilliant.law/lawyer/">About Ronald Brilliant <span>↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="program" id="program">
+      <div class="shell program-grid">
+        <div class="program-visual"><div class="program-mark"><strong>2U</strong><span>The 2YouLaw Program™</span></div></div>
+        <div class="program-copy"><p class="eyebrow">Built around the client</p><h2>Legal service designed to feel more direct.</h2><p>The 2YouLaw Program™ reflects a commitment to accessibility, transparency and personal attorney involvement. Understand the choices in front of you and move forward with a practical plan.</p><a class="button button-dark" href="https://brilliant.law/2youlaw-program/">Discover 2YouLaw™ <span>→</span></a></div>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="shell proof-grid">
+        <div class="quote-card"><span>“</span><blockquote>Professional, responsive and able to make a difficult legal process feel manageable.</blockquote><footer>Representative client feedback · Final testimonials should be verified before publication</footer></div>
+        <div class="score-card"><div><div class="stars">★★★★★</div><strong>5.0</strong></div><p>Trust is built through clear advice, careful preparation and consistent communication.</p></div>
+      </div>
+    </section>
+
+    <section class="locations" id="locations">
+      <div class="shell location-grid">
+        <div class="location"><span>01 / Licensed</span><strong>California</strong><small>Legal representation subject to matter and jurisdiction.</small></div>
+        <div class="location"><span>02 / Licensed</span><strong>Idaho</strong><small>Legal representation subject to matter and jurisdiction.</small></div>
+        <div class="location"><span>03 / Licensed</span><strong>Nevada</strong><small>Legal representation subject to matter and jurisdiction.</small></div>
+        <div class="location"><span>04 / Nationwide</span><strong>Immigration</strong><small>Representation available throughout the United States.</small></div>
+      </div>
+    </section>
+
+    <section class="final"><div class="shell"><p class="eyebrow">Begin with a conversation</p><h2>A clearer path starts with understanding the situation.</h2><p>Share what you are facing and learn what a practical next step may look like.</p><a class="button button-dark" href="https://brilliantlaw.cliogrow.com/book">Request a consultation <span>↗</span></a></div></section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand"><a class="brand" href="#top"><img src="logo.png" alt="Brilliant Law Office logo" /><span><strong>Brilliant Law Office</strong><span>Personal counsel since 1998</span></span></a><p>Attorney-led representation for individuals, families and businesses.</p></div>
+        <div class="footer-col"><h4>Practice</h4><a href="https://brilliant.law/bankruptcy/">Bankruptcy</a><a href="https://brilliant.law/immigration/">Immigration</a><a href="https://brilliant.law/family-law/">Family law</a></div>
+        <div class="footer-col"><h4>Firm</h4><a href="https://brilliant.law/lawyer/">Attorney</a><a href="https://brilliant.law/2youlaw-program/">2YouLaw™</a><a href="https://brilliant.law/contact/">Contact</a></div>
+        <div class="footer-col"><h4>Connect</h4><a href="tel:18332968259">(833) 296-8259</a><span>California · Idaho · Nevada</span><span>Nationwide immigration representation</span></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Brilliant Law Office PLLC</span><span>Concept design · Attorney advertising and legal disclaimers require final review</span></div>
+    </div>
+  </footer>
+</body>
+</html>
